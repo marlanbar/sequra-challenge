@@ -1,0 +1,15 @@
+# AWS and S3
+boto3
+s3fs
+pyarrow
+
+# Data processing
+pandas
+numpy
+
+# Database connections
+psycopg2-binary
+sqlalchemy
+
+# dbt for Redshift
+dbt-redshift

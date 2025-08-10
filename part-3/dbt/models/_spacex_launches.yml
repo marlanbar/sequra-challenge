@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: spacex_launches
+    description: "This model contains data about SpaceX launches, including their names, dates, cores used, and success status."
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+      - name: date_utc
+        tests:
+          - not_null
+      - name: core
+        tests:
+          - not_null
+      - name: success
+        tests:
+          - not_null

@@ -1,0 +1,39 @@
+# Use an official Python image as the base
+FROM python:3.11-slim
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Install system dependencies required by dbt and psycopg2
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy Python dependency file
+COPY requirements.txt .
+
+# Install Python dependencies
+# - dbt-redshift: for running dbt models in Amazon Redshift
+# - boto3 / s3fs / pyarrow: for S3 interactions
+# - pandas / numpy: for data processing in etl.py
+# - psycopg2-binary: for connecting to Redshift from Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy dbt project files
+COPY dbt_project/ ./dbt_project/
+
+# Copy ETL script
+COPY etl.py ./etl.py
+
+# Optional: set environment variables for AWS and Redshift
+# ENV AWS_ACCESS_KEY_ID=...
+# ENV AWS_SECRET_ACCESS_KEY=...
+# ENV REDSHIFT_HOST=...
+# ENV REDSHIFT_DB=...
+# ENV REDSHIFT_USER=...
+# ENV REDSHIFT_PASSWORD=...
+
+# Default entrypoint (overridden by Airflow ECSOperator commands)
+ENTRYPOINT ["bash"]
