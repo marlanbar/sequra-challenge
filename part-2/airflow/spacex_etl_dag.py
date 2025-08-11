@@ -114,7 +114,7 @@ with DAG(
         },
     )
 
-    # 5) Optional: dbt tests to ensure data quality
+    # 5) dbt tests to ensure data quality
     run_dbt_tests = EcsOperator(
         task_id="run_dbt_tests",
         aws_conn_id="aws_default",
