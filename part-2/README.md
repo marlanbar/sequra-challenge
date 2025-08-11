@@ -51,7 +51,7 @@ The Docker image includes:
 
 ## Files in this folder
 - `Dockerfile` — Docker image definition for ETL/dbt execution.
-- `requirements.txt` — Python dependencies for the container.
+- `spacex_etl_dag.py` — Airflow DAG for orchestrating the ETL process.
 - `README.md` — This documentation.
 
 ---
