@@ -30,24 +30,6 @@ The Docker image includes:
 - Required Python libraries for the ETL (`pandas`, `boto3`, `sqlalchemy`, `psycopg2-binary`, `requests`, etc.).
 - The ETL script (`etl.py`) and dbt project files.
 
-**Build and Push Instructions:**
-```bash
-# Authenticate Docker to ECR
-aws ecr get-login-password --region <AWS_REGION> | docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com
-
-# Create ECR repository (if not exists)
-aws ecr create-repository --repository-name spacex-etl
-
-# Build Docker image
-docker build -t spacex-etl .
-
-# Tag image
-docker tag spacex-etl:latest <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/spacex-etl:latest
-
-# Push image to ECR
-docker push <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/spacex-etl:latest
-```
-
 ---
 
 ## Airflow Orchestration (MWAA)
