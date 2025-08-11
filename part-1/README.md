@@ -1,4 +1,4 @@
-# Part 1: Data Architecture
+# Part 1 — Data Architecture
 
 ## Overview
 
