@@ -52,7 +52,6 @@ The Docker image includes:
 ## Files in this folder
 - `Dockerfile` — Docker image definition for ETL/dbt execution.
 - `requirements.txt` — Python dependencies for the container.
-- `ecs-task-definition.json` — (Optional) ECS task definition for the container.
 - `README.md` — This documentation.
 
 ---
