@@ -1,4 +1,4 @@
-# SpaceX Data ETL Pipeline - Part 3 - ETL Pipeline
+# Part 3 — ETL Pipeline
 
 ## Overview
 This part of the challenge focuses on implementing an ETL pipeline using Airbyte for data extraction from the SpaceX API and Python scripts for transforming and loading the data into Amazon Redshift. 
