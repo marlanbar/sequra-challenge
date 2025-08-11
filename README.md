@@ -22,7 +22,8 @@ The challenge consists of designing a scalable data architecture on AWS, buildin
 - Airflow DAG to schedule and monitor the pipeline.
 
 ### 3. **ETL Pipeline**
-- Python script or notebook to extract, transform, and load SpaceX launch data from the provided JSON file.
+- Python script to extract, transform, and load SpaceX launch data from the provided JSON file.
+- dbt models for data transformations.
 - Explanation of how the ETL pipeline is scheduled and monitored using Airflow.
 
 ### 4. **SQL Queries**
@@ -58,8 +59,8 @@ The challenge consists of designing a scalable data architecture on AWS, buildin
 
 ```
 ├── part-1/               # Data Infrastructure on AWS (architecture, Terraform, security docs)
-├── part-2/               # Orchestration & Containers (Docker setup, Airflow DAGs, optional EKS)
-├── part-3/               # ETL Pipeline (JSON ingestion, transformations, Airflow scheduling)
+├── part-2/               # Orchestration & Containers (Docker setup, Airflow DAGs)
+├── part-3/               # ETL Pipeline (JSON ingestion, transformations)
 ├── part-4/               # SQL Queries (analysis of SpaceX core reuse)
 └── README.md             # This documentation
 ```

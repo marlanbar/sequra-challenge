@@ -28,7 +28,7 @@ In contrast, the ETL and dbt processes are short-lived, stateless jobs. AWS Farg
 The Docker image includes:
 - Python 3.11
 - Required Python libraries for the ETL (`pandas`, `boto3`, `sqlalchemy`, `psycopg2-binary`, `requests`, etc.).
-- The ETL script (`etl.py`) and optionally dbt project files.
+- The ETL script (`etl.py`) and dbt project files.
 
 **Build and Push Instructions:**
 ```bash
@@ -53,6 +53,7 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.<AWS_REGION>.amazonaws.com/spacex-etl:lates
 ## Airflow Orchestration (MWAA)
 
 - **DAG Structure:**
+  1. Trigger Airbyte task to download data to S3.
   1. Trigger ECS task to run the ETL script (`etl.py`) which loads data from S3 into Redshift.
   2. Trigger ECS task to run dbt transformations inside Redshift.
 - The DAGs are stored in S3 and automatically picked up by MWAA.

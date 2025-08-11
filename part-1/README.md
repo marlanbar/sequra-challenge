@@ -19,7 +19,7 @@ The pipeline architecture is split between a **public subnet** for external-faci
 - **Amazon S3**: Serves as a landing zone (raw layer) for extracted data. Decouples ingestion from transformation and acts as backup.
 - **Amazon Redshift**: Used as the analytical data warehouse. Loads data from S3 using a Python script triggered via Airflow.
 - **Amazon MWAA (Managed Airflow)**: Orchestrates the pipeline. Manages task dependencies, retries, and scheduling of the extraction, loading, and transformation steps.
-- **dbt (hosted on EC2)**: Executes SQL-based data transformations inside Redshift, including testing and documentation. Triggered by Airflow as part of the pipeline.
+- **dbt (hosted on ECS Fargate)**: Executes SQL-based data transformations inside Redshift, including testing and documentation. Triggered by Airflow as part of the pipeline.
 
 ---
 
